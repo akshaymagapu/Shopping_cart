@@ -1,2 +1,2 @@
-# Employee_POC
-Angular 2 Project for simple employee display application
+# Shopping cart
+Angular 2 Project for simple shopping cart application
