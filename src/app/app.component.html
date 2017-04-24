@@ -1,0 +1,166 @@
+<div class="container-fluid col-xs-12">
+    <div class="col-xs-9 col-sm-12 headertitle clearfix">
+        <h1>{{title}}</h1>
+    </div>
+    <div *ngFor="let itemhead of itemheader" class="col-xs-3 visible-xs hidden-sm text-right itemscount">
+        <b>{{totalItems}}</b> {{itemhead.items}}
+    </div>
+
+    <div *ngFor="let itemhead of itemheader" class="item-listing-container hidden-xs clearfix">
+        <div class="col-sm-3 ">
+            <b>{{totalItems}}</b> {{itemhead.items}}
+        </div>
+        <div class="col-sm-9">
+            <div class="col-sm-6 col-sm-push-6">
+                <div class="col-sm-4">{{itemhead.size}}</div>
+                <div class="col-sm-4">{{itemhead.quantity}}</div>
+                <div class="col-sm-4 text-center">{{itemhead.price}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngFor="let item of mydata" class="items-container clearfix">
+        <div class="col-xs-5 col-sm-3 image"><img src="../shared/images/{{item.image}}" data-toggle="modal" data-target="#myModal"></div>
+        <div class="col-xs-7 col-sm-9">
+            <div class="col-sm-6 no-gutter">
+                <b>{{item.p_variation}}{{item.p_name}}</b><br> {{item.p_style}}
+                <br> {{item.p_selected_color.name}}
+                <br>
+            </div>
+
+            <div class="col-sm-6 no-gutter">
+                <div class="col-xs-12 col-sm-4 size itemsize">
+                    <span>Size:</span>
+                    <b>{{item.p_selected_size.code}}</b>
+                </div>
+                <div class="col-xs-12 col-sm-4 qty itemqty">
+                    <span>QTY:</span>
+                    <b><input class="qty" type="text" [(ngModel)]="item.p_quantity" #box   (change)="updateItems()"></b>
+                </div>
+                <div class="col-xs-12 col-sm-4 itemprice text-center">
+                    <sup>{{item.c_currency}}</sup> <b>{{item.p_price}}.00</b>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+            <div class="item-edit">
+                <a href="#" (click)="editItem(item)" data-toggle="modal" data-target="#myModal">EDIT</a>
+                <a href="#" (click)="remove(item)">X REMOVE</a>
+                <a href="#">SAVE FOR LATER</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-5">
+                        <p>PAISLEY JEAN</p>
+                        <br>
+                        <p>&#36; 21</p>
+                        <p>PAISLEY</p>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                     Dropdown
+                     <span class="caret"></span>
+                     </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                     Dropdown
+                     <span class="caret"></span>
+                     </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-secondary">Secondary</button>
+                        <a href="#">See product details</a>
+                    </div>
+                    <div class="col-md-6">
+                        <img style="width:100%;height:600px;" src="../shared/images/T1.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="customer-care-diff"></div>
+
+    <div class="paymentContext">
+        <div class="col-sm-3 customercare hidden-xs">
+            <p><b>Need help <br> or have questions?</b></p>
+            <p>Call Customer Service at <br>1-800-555-5555</p>
+            <a href="#">Chat with one of <br>our stylists</a><br><br>
+            <a href="#">See return <br>&#38; exchange policy</a>
+        </div>
+
+        <div class="col-sm-9">
+            <div class="col-xs-12 clearfix promocode">
+                <div class="col-xs-12 col-sm-5">ENTER PROMOTION CODE OR GIFT CODE</div>
+                <div class="col-xs-12 col-sm-7">
+                    <input type="text" #promocode (keyup.enter)="promoApply(promocode.value)">
+                    <button type="submit" (click)="promoApply(promocode.value)">APPLY</button>
+                </div>
+            </div>
+
+            <div class="col-xs-12 borders">
+                <div *ngFor="let tot of total" class="billing no-gutter">
+                    <div class="col-xs-8 no-gutter">
+                        <b>{{tot.title}}</b>
+                        <span>{{tot.subText}}</span>
+                    </div>
+                    <div class="col-xs-4 text-right no-gutter" *ngIf="tot.value !== 'FREE' && tot.title !== 'PROMOTION CODE JF10 APPLIED'">
+                        <sup>&#36;</sup> <b>{{tot.value}}</b>
+                    </div>
+                    <div class="col-xs-4 text-right no-gutter" *ngIf="tot.title === 'PROMOTION CODE JF10 APPLIED'">
+                        - <sup>&#36;</sup> <b>{{tot.value}}</b>
+                    </div>
+                    <div class="col-xs-4 text-right no-gutter" *ngIf="tot.value === 'FREE'">
+                        <b>{{tot.value}}</b>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 hidden-xs no-gutter text-right">
+                <a href="javascript:void(0)" class="link-to-shop">CONTINUE SHOPPING</a>
+                <button class="promoapply-out" type="submit">CHECKOUT</button>
+            </div>
+
+            <div class="col-xs-12 visible-xs no-gutter">
+                <button class="promoapply-out col-xs-12 no-gutter" type="submit">CHECKOUT</button>
+                <div class="col-xs-12 text-center">
+                    <a href="#" class="link-to-shop">CONTINUE SHOPPING</a>
+                </div>
+            </div>
+
+
+            <div class="infosite col-xs-12 no-gutter">
+                <img src="../shared/images/lock.jpg" class="hidden-xs">
+                <span>Secure checkout. Shopping is always safe &#38; secure</span>
+                <img src="../shared/images/lock.jpg" class="visible-xs">
+            </div>
+
+            <div class="col-xs-12 signin visible-xs">
+                <a href="javascript:void(0)">SIGN IN</a> to save cart and have access to your items on mobile, tablet, and desktop.
+            </div>
+
+        </div>
+
+    </div>
+</div>

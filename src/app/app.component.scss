@@ -1,0 +1,256 @@
+$primary-color: #696969;
+$border-color: #dcdcdc;
+$thin-border:1px solid $border-color;
+$thick-border:7px solid $border-color;
+.headertitle {
+    margin: 0px 0px 30px 0px;
+    h1 {
+        font-size: 60px;
+        color: $primary-color;
+    }
+}
+
+.clearfix {
+    clear: both;
+}
+
+.no-gutter {
+    padding: 0px;
+}
+
+.item-listing-container {
+    border-top: $thin-border;
+    padding: 20px 0px;
+    border-bottom: $thick-border;
+    font-size: 18px;
+}
+
+.itemscount {
+    margin: 20px 0px 0px 0px;
+}
+
+.item-edit {
+    margin: 20px 0px 0px 0px;
+    a {
+        border-right: $thin-border;
+        padding: 0px 5px;
+    }
+    a:nth-child(1) {
+        padding-left: 0px;
+    }
+    a:nth-child(3) {
+        border-right: 0px;
+    }
+}
+
+.itemsize b {
+    padding-left: 10px;
+}
+
+.itemprice b {
+    font-size: 16px;
+}
+
+.itemsize span,
+.itemqty span {
+    display: none;
+}
+
+.paymentContext {
+    margin: 70px 0px 50px 0px;
+    float: left;
+}
+
+.borders {
+    border-top: $thick-border;
+    border-bottom: $thick-border;
+    margin: 30px 0px 20px 0px;
+    padding: 0px 0px 30px 0px;
+    div {
+        span {
+            display: block;
+        }
+    }
+    div:last-child {
+        div {
+            border-top: $thin-border;
+            padding-top: 20px;
+        }
+    }
+}
+
+.infosite {
+    margin-top: 25px;
+}
+
+a.link-to-shop {
+    display: inline-block;
+    margin: 10px 20px 0px 0px;
+    text-decoration: underline;
+    color: $primary-color;
+}
+
+a.link-to-shop:hover {
+    text-decoration: none;
+}
+
+button.promoapply-out {
+    width: 150px;
+    font-size: 16px;
+    background-color: #0073e6;
+    border: none;
+    color: white;
+    height: 40px;
+}
+
+.signin {
+    font-size: 16px;
+    margin: 20px 0px 0px 0px;
+    padding: 20px 0px 0px 0px;
+    border-top: $thin-border;
+}
+
+.promocode {
+    font-size: 18px;
+    button {
+        background-color: #ffffff;
+        border: $thin-border;
+        width: 100px;
+    }
+}
+
+.items-container {
+    border-top: $thin-border;
+    padding: 20px 0px;
+}
+
+.billing {
+    margin-top: 30px;
+    padding: 5px 0px 0px 0px;
+    display: block;
+    width: 100%;
+    float: left;
+}
+
+.customer-care-diff {
+    border-bottom: $thick-border;
+}
+
+input.qty {
+    width: 40px;
+    height: 25px;
+    padding-left: 12px;
+}
+
+.customercare {
+    padding-left: 0px;
+    text-align: left;
+    a {
+        text-decoration: underline;
+        color: $primary-color;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+div.modal-content {
+    height: 80% !important;
+    display: -webkit-box;
+}
+
+div.modal-header {
+    position: absolute;
+    width: 100%;
+}
+
+div.modal-body {
+    width: 100%;
+    float: left;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .container-fluid {
+        padding: 0px;
+    }
+    .headertitle {
+        margin: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+        h1 {
+            font-size: 18px;
+            color: $primary-color;
+        }
+    }
+    .itemsize,
+    .itemqty,
+    .itemprice {
+        padding-left: 0px;
+    }
+    .itemsize span,
+    .itemqty span {
+        display: inline-block;
+    }
+    .itemqty span {
+        display: inline-block;
+        margin-top: 10px;
+    }
+    .itemprice {
+        text-align: left;
+        margin-top: 10px;
+    }
+    .item-edit {
+        margin: 20px 0px 0px 0px;
+        text-align: center;
+        a {
+            border-right: $thin-border;
+        }
+    }
+    button.promoapply-out {
+        width: 100%;
+    }
+    .infosite {
+        text-align: center;
+        img {
+            display: block;
+            width: 20px;
+            margin: 10px auto;
+        }
+    }
+    .paymentContext {
+        margin-top: 40px;
+    }
+    .promocode {
+        text-align: center;
+        div:first-child {
+            padding: 10px 0px;
+        }
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 400px) {
+    .image img {
+        width: 100%;
+    }
+    .promocode button {
+        width: 80px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .infosite {
+        text-align: right;
+        img {
+            margin-right: 10px;
+        }
+    }
+    .promocode {
+        padding: 0px;
+        div:first-child {
+            padding-left: 0px;
+        }
+        div:last-child {
+            text-align: right;
+            padding-right: 0px;
+        }
+    }
+}
